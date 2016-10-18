@@ -1,4 +1,4 @@
-angular.module("lbApp", ["ui.router"])
+angular.module("lbApp", ["ui.router", "angular.filter"])
 
   .config(function($stateProvider, $urlRouterProvider) {
 

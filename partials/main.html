@@ -1,1 +1,23 @@
-{{greeting}}
+<h2> GitHub Angular issues from the past week </h2>
+  <section class='dates'>
+    <article ng-repeat="(date, issue) in issues | groupBy: 'created_at | date: yyyy-MM-dd'">
+      <h3>
+        <a ng-click='showIssue = !showIssue'>
+          {{date | date}}:
+        </a>
+      </h3>
+      <div ng-class-even="'even' "class='eachIssue' ng-show='showIssue' ng-repeat='i in issue'>
+        <div class='description'>
+          <p>Issue: {{i.title}}</p>
+          <a ng-click='expandIssue = !expandIssue'>
+            <strong><p> Expand Issue </p></strong>
+          </a>
+          <p ng-show='expandIssue'> {{i.body}} </p>
+        </div>
+        <div class='user'>
+          <p>User: {{i.user.login}}</p>
+          <p>Assignee: {{i.assignee}}</p>
+        </div>
+      </div>
+    </article>
+  </section>
