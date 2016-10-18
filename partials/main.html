@@ -1,6 +1,9 @@
 <h2> GitHub Angular issues from the past week </h2>
+  <p> Click on the date to see the issues from that day </p>
+  <p> Use the search option to limit the results based on your keywords </p>
+  <input ng-model='main.search' type="text" class="form-control" placeholder="Search">
   <section class='dates'>
-    <article ng-repeat="(date, issue) in issues | groupBy: 'created_at | date: yyyy-MM-dd'">
+    <article ng-repeat="(date, issue) in (issues | filter:main.search) | groupBy: 'created_at | date: yyyy-MM-dd'">
       <h3>
         <a ng-click='showIssue = !showIssue'>
           {{date | date}}:
